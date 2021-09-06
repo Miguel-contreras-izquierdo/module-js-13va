@@ -85,26 +85,127 @@ Ejercicio 6:
     Dado un string de dos palabras realizar una función que devuelva la palabra más larga
     input: 'Programación Javascript'
     Output: 'Programación'
+// */
+// let stringTwoWords = prompt("Escriba  string de 2 palabras")
+
+// function isLongerWord(stringTwoWords){
+//     const myArray = stringTwoWords.split(" ")
+
+//     let wordOne = myArray[0]
+//     let wordTwo = myArray[1]
+
+//     let respuesta
+//     if(wordOne.length > wordTwo.length){
+//         respuesta = wordOne
+//     }else if (wordOne.length < wordTwo.length){
+//         respuesta = wordTwo
+//     }else{
+//         respuesta = "Ambas palabras son iguales"
+//     }
+//     return respuesta
+
+// }
+
+// console.log(isLongerWord(stringTwoWords))
+
+/*Ejercicios */
+/*
+Deducir:
+input: "kodemia"
+output: "aimedok"
+
+Algoritmo
+1. Solicitar palabra y guardar en una variables
+2. Aplicar ordenamiento inverso a palabra
+    2.1 Dividir la palabra usando .split y obteniendo un array
+    2.2 Aplicar .reverse a array obtenido en 2.1
+    2.3 Unir con .joint el nuevo array y guardarlo en una variabale
+3. Imprimir en consoloa variable de 2.3
 */
-let stringTwoWords = prompt("Escriba  string de 2 palabras")
 
-function isLongerWord(stringTwoWords){
-    const myArray = stringTwoWords.split(" ")
+// let stringToReverse = prompt("Escribe una palabra:")
 
-    let wordOne = myArray[0]
-    let wordTwo = myArray[1]
+// function stringReverse(stringReverse){
+//     let stringReverseSplit = stringReverse.split("")
+//     let arrayReverse = stringReverseSplit.reverse()
+//     let joinArrayReverse = arrayReverse.join("")
 
-    let respuesta
-    if(wordOne.length > wordTwo.length){
-        respuesta = wordOne
-    }else if (wordOne.length < wordTwo.length){
-        respuesta = wordTwo
-    }else{
-        respuesta = "Ambas palabras son iguales"
-    }
-    return respuesta
+//     return joinArrayReverse
+// }
 
+// console.log(stringReverse(stringToReverse))
+
+
+/*
+input: "a very large string"
+output: "A VeRy lArGe sTrInG" 
+input: "abcdefg"
+output: "AbCdEfG"
+
+1. Solicitar parrafo y guardar en una variable
+2. Analizar frase de acuerdo al siguiente criterio:
+    2.1 Dividir la frase en letras
+    2.2 Si la letra es modulo%2 (es decir true)
+        2.2.1 Convertir letra en mayuscula
+        2.2.2 Sino,  Convertir letra en minuscula
+    2.3 Unir letras con .join
+3. Imprimir en consola variable de 2.3
+*/
+
+// let paragraph = prompt("Escribe una frase:")
+
+// function capitalizeParagraph(paragraph){
+    
+//     return paragraph.split('').map((v,i) => i % 2 ? v.toLowerCase(): v.toUpperCase()).join('');
+// }
+
+// console.log(capitalizeParagraph(paragraph))
+
+/*
+Crear una funcion que me indique si un string comienza con
+ -una vocal
+ -consonante
+ -numero
+ -caracter especial
+
+ 1. Solicitar palabra  y guardar en una variable
+2. Identificar letra de inicio y guardar en una variable
+3. Analizar los casos con regexp,switch:
+    -una vocal
+    -consonante
+    -numero
+    -caracter especial
+    
+3. Imprimir en consola variable de 2.3
+*/
+
+let word = prompt("Escribe una palabra:")
+
+function isTypeWord(word){
+    let firstLetter = word.at(0)
+
+    let vocal = (firstLetter.match(/[aeiou]/gi)|| [])
+    let consonants = (firstLetter.match(/[^aeiou]/gi)|| [])
+    let number = (firstLetter.match(/[0-9]/gi)|| [])
+    let specialChar = (firstLetter.match(/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/gi)|| [])
+
+    let result
+
+    if (number.length>0){
+        result = "Empieza con numero"
+    }else if (specialChar.length>0){
+        result = "Empieza con caracter especial"
+    }else if (consonants.length>0){
+        result = "Empieza con consonante"
+    }else if (vocal.length>0){
+        result =  "Empieza con vocal" 
+    }else
+        result = "Empieza con algo que no es vocal, consonante,numero o caracter especial"
+
+    return result
 }
+console.log(isTypeWord(word))
 
-console.log(isLongerWord(stringTwoWords))
+
+
 
