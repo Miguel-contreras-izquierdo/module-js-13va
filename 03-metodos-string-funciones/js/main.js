@@ -136,6 +136,19 @@ Algoritmo
 // console.log(stringReverse(stringToReverse))
 
 
+// Usando ciclo for
+let stringToReverse = prompt("Escribe una palabra:")
+
+let stringLength = stringToReverse.length
+let result=""
+
+for (let index = (stringLength-1); index >= 0; index--){
+    result += stringToReverse.charAt(index)
+}
+
+console.log(result)
+
+
 /*
 input: "a very large string"
 output: "A VeRy lArGe sTrInG" 
@@ -170,7 +183,7 @@ Crear una funcion que me indique si un string comienza con
 
  1. Solicitar palabra  y guardar en una variable
 2. Identificar letra de inicio y guardar en una variable
-3. Analizar los casos con regexp,switch:
+3. Analizar los casos con regexp,if else :
     -una vocal
     -consonante
     -numero
@@ -179,32 +192,32 @@ Crear una funcion que me indique si un string comienza con
 3. Imprimir en consola variable de 2.3
 */
 
-let word = prompt("Escribe una palabra:")
+// let word = prompt("Escribe una palabra:")
 
-function isTypeWord(word){
-    let firstLetter = word.at(0)
+// function isTypeWord(word){
+//     let firstLetter = word.at(0)
 
-    let vocal = (firstLetter.match(/[aeiou]/gi)|| [])
-    let consonants = (firstLetter.match(/[^aeiou]/gi)|| [])
-    let number = (firstLetter.match(/[0-9]/gi)|| [])
-    let specialChar = (firstLetter.match(/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/gi)|| [])
+//     let vocal = (firstLetter.match(/[aeiou]/gi)|| [])
+//     let consonants = (firstLetter.match(/[^aeiou]/gi)|| [])
+//     let number = (firstLetter.match(/[0-9]/gi)|| [])
+//     let specialChar = (firstLetter.match(/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/gi)|| [])
 
-    let result
+//     let result
 
-    if (number.length>0){
-        result = "Empieza con numero"
-    }else if (specialChar.length>0){
-        result = "Empieza con caracter especial"
-    }else if (consonants.length>0){
-        result = "Empieza con consonante"
-    }else if (vocal.length>0){
-        result =  "Empieza con vocal" 
-    }else
-        result = "Empieza con algo que no es vocal, consonante,numero o caracter especial"
+//     if (number.length>0){
+//         result = "Empieza con numero"
+//     }else if (specialChar.length>0){
+//         result = "Empieza con caracter especial"
+//     }else if (consonants.length>0){
+//         result = "Empieza con consonante"
+//     }else if (vocal.length>0){
+//         result =  "Empieza con vocal" 
+//     }else
+//         result = "Empieza con algo que no es vocal, consonante,numero o caracter especial"
 
-    return result
-}
-console.log(isTypeWord(word))
+//     return result
+// }
+// console.log(isTypeWord(word))
 
 
 
